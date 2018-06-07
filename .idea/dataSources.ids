@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - animal@localhost" uuid="c3fb8a66-fb41-4739-a764-001597966c3d">
+    <database-info product="MySQL" version="5.5.5-10.1.13-MariaDB" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.38 ( Revision: fe541c166cec739c74cc727c5da96c1028b4834a )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="animal"/>
+      <table id="2" parent="1" name="animals"/>
+      <table id="3" parent="1" name="antype"/>
+      <column id="4" parent="2" name="id">
+        <comment>id主键</comment>
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="5" parent="2" name="name">
+        <comment>动物名称</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="6" parent="2" name="age">
+        <comment>动物年龄</comment>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="7" parent="2" name="anid">
+        <comment>动物编号</comment>
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="8" parent="2" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="9" parent="3" name="anid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="10" parent="3" name="anname">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <key id="11" parent="3" name="PRIMARY">
+        <columns>anid</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="12" parent="3" name="anid">
+        <columns>anid</columns>
+        <ref-key>~.animals.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+    </database-model>
+  </data-source>
+</component>
